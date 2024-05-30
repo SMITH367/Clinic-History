@@ -1,4 +1,184 @@
 <app-header></app-header>
-<h1 class="text-center">HOLA, BIENVENIDO AUTENTICACIÓN Y AUTORIZACIÓN EXITOSOS USANDO JWT</h1>
-<div>
-</div>
+<h1 class="text-center mt-sm-2">Gestión de pacientes</h1>
+<section>
+  <article class="d-flex justify-content-around align-items-center flex-wrap">
+    <form action="">
+      <label class="d-block" for="seachPatient">Buscar paciente</label>
+      <div class="d-flex align-content-center flex-wrap align-items-center">
+        <input class="p-2 border-1 rounded-1" type="text" name="" size="20" id="seachPatient"
+          placeholder="Nombre o identificacion">
+        <button class="btn btn-primary m-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-search">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+            <path d="M21 21l-6 -6" /></svg>
+          Buscar
+        </button>
+      </div>
+    </form>
+
+    <a href="" class="btn btn-outline-success text-white btn-success">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="icon icon-tabler icons-tabler-outline icon-tabler-user-plus">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+        <path d="M16 19h6" />
+        <path d="M19 16v6" />
+        <path d="M6 21v-2a4 4 0 0 1 4 -4h4" /></svg>
+      Agregar paciente
+    </a>
+  </article>
+
+  <article class="mt-3 p-lg-4">
+    <h2>Pacientes</h2>
+    <table class="table table-borderless table-responsive-md table-hover">
+      <thead class="table-light">
+        <tr>
+          <th scope="col">Identificación</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Clase</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">33131394</th>
+          <td>Judith Ballestas Puente</td>
+          <td>Sanitas</td>
+          <td> <a class="text-decoration-none" routerLink="/dashboard">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-edit">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" />
+                <path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" />
+                <path d="M16 5l3 3" /></svg>
+              Editar datos </a></td>
+          <td><a class="btn btn-success text-decoration-none" routerLink="/dashboard">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-report">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M8 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h5.697" />
+                <path d="M18 14v4h4" />
+                <path d="M18 11v-4a2 2 0 0 0 -2 -2h-2" />
+                <path d="M8 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
+                <path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+                <path d="M8 11h4" />
+                <path d="M8 15h3" /></svg>
+              Historia </a></td>
+        </tr>
+        <tr>
+          <th scope="row">33131394</th>
+          <td>Judith Ballestas Puente</td>
+          <td>Sanitas</td>
+          <td> <a class="text-decoration-none" routerLink="/dashboard">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-edit">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" />
+                <path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" />
+                <path d="M16 5l3 3" /></svg>
+              Editar datos </a></td>
+          <td><a class="btn btn-success text-decoration-none" routerLink="/dashboard">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-report">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M8 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h5.697" />
+                <path d="M18 14v4h4" />
+                <path d="M18 11v-4a2 2 0 0 0 -2 -2h-2" />
+                <path d="M8 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
+                <path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+                <path d="M8 11h4" />
+                <path d="M8 15h3" /></svg>
+              Historia </a></td>
+        </tr>
+        <tr>
+          <th scope="row">33131394</th>
+          <td>Judith Ballestas Puente</td>
+          <td>Sanitas</td>
+          <td> <a class="text-decoration-none" routerLink="/dashboard">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-edit">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" />
+                <path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" />
+                <path d="M16 5l3 3" /></svg>
+              Editar datos </a></td>
+          <td><a class="btn btn-success text-decoration-none" routerLink="/dashboard">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-report">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M8 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h5.697" />
+                <path d="M18 14v4h4" />
+                <path d="M18 11v-4a2 2 0 0 0 -2 -2h-2" />
+                <path d="M8 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
+                <path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+                <path d="M8 11h4" />
+                <path d="M8 15h3" /></svg>
+              Historia </a></td>
+        </tr>
+        <tr>
+          <th scope="row">33131394</th>
+          <td>Judith Ballestas Puente</td>
+          <td>Sanitas</td>
+          <td> <a class="text-decoration-none" routerLink="/dashboard">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-edit">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" />
+                <path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" />
+                <path d="M16 5l3 3" /></svg>
+              Editar datos </a></td>
+          <td><a class="btn btn-success text-decoration-none" routerLink="/dashboard">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-report">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M8 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h5.697" />
+                <path d="M18 14v4h4" />
+                <path d="M18 11v-4a2 2 0 0 0 -2 -2h-2" />
+                <path d="M8 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
+                <path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+                <path d="M8 11h4" />
+                <path d="M8 15h3" /></svg>
+              Historia </a></td>
+        </tr>
+        <tr>
+          <th scope="row">33131394</th>
+          <td>Judith Ballestas Puente</td>
+          <td>Sanitas</td>
+          <td> <a class="text-decoration-none" routerLink="/dashboard">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-edit">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" />
+                <path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" />
+                <path d="M16 5l3 3" /></svg>
+              Editar datos </a></td>
+          <td><a class="btn btn-success text-decoration-none" routerLink="/dashboard">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-report">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M8 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h5.697" />
+                <path d="M18 14v4h4" />
+                <path d="M18 11v-4a2 2 0 0 0 -2 -2h-2" />
+                <path d="M8 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
+                <path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+                <path d="M8 11h4" />
+                <path d="M8 15h3" /></svg>
+              Historia </a></td>
+        </tr>
+      </tbody>
+    </table>
+  </article>
+</section>
