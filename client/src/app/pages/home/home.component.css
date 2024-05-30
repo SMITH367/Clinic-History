@@ -1,0 +1,8 @@
+.home{
+  background-color: rgb(251, 254, 255);
+}
+.wrapper{
+  background-image: linear-gradient(to bottom, #e0f7ff, #dbf3ff, #d6f0ff, #d3ebff, #d1e7ff, #d5e6fe, #d9e5fd, #dce4fb, #e3e7f8, #e8e9f5, #ededf2, #f0f0f0);
+  padding-bottom: 3em;
+  border-radius: 1em;
+}

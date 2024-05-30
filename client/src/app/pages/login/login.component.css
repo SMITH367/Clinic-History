@@ -1,0 +1,25 @@
+body {
+  background-color: rgb(228, 229, 247);
+}
+
+.card {
+  font-family: sans-serif;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3em;
+  margin-bottom:3em;
+  border-radius: 10px;
+  background-color: #ffff;
+  padding: 1.8rem;
+  box-shadow: 2px 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.email-login label {
+  color: rgb(170 166 166);
+}
+
+input[type="email"],
+input[type="password"] {
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}

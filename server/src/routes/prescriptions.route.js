@@ -78,6 +78,7 @@ router.delete('/prescription/:id', verifyToken, (req, res) => {
         })
     }
 
+
     const id_prescription = req.params.id
 
     conexionMysql.query(prescriptionsModel.getPrescriptionByID, id_prescription, (err, rows, fields) => {

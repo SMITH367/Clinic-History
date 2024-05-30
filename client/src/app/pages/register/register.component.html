@@ -1,0 +1,46 @@
+<app-header></app-header>
+<div class="card col-sm-4 col-lg-4">
+  <form [formGroup]="registerForm">
+     <h2 class="text-center fw-bold">Create account</h2>
+     <p class="text-center fw-bold">Do you have an account? <a class="text-decoration-none" routerLink="/login"> Log in</a></p>
+     <div class="email-login d-flex flex-column">
+        <label> <b>User name</b></label>
+        <input class="py-2 mt-3 mb-3 border rounded" formControlName="userName" type="email" placeholder="Enter user name" name="uname" required>
+        <div class="text-danger" *ngIf="registerForm.get('userName')?.hasError('required') && registerForm.get('userName')?.touched">
+         Required
+        </div>
+        <label for="email"> <b>Email</b></label>
+        <input class="py-2 mt-3 mb-3 border rounded" formControlName="email" type="email" placeholder="Enter Email" name="uname" required>
+        <div class="text-danger" *ngIf="registerForm.get('email')?.hasError('email') && registerForm.get('email')?.touched">
+          Invalid email
+        </div>
+        <label for="psw"> <b>Password</b></label>
+        <input  class="py-2 mt-3 mb-3 border rounded" formControlName="password" type="password" placeholder="Enter password" name="uname" required>
+        <div class="text-danger" *ngIf="registerForm.get('password')?.hasError('required') && registerForm.get('password')?.touched">
+          Required
+        </div>
+        <label for="psw"><b>Confirm Password</b></label>
+        <input class="py-2 mt-3 mb-2 border rounded" formControlName="confirmPassword" type="password" placeholder="Repeat Password" name="psw" required>
+        <div class="text-danger" *ngIf="registerForm.get('confirmPassword')?.hasError('required') && registerForm.get('confirmPassword')?.touched">
+          Required
+        </div>
+        <div class="text-danger" *ngIf="registerForm.hasError('mismatch') && (registerForm.get('password')?.dirty || registerForm.get('confirmPassword')?.dirty)">
+          Passwords don't match.
+        </div>
+      </div>
+      <div class="text-center py-4">
+        <button [disabled]="registerForm.invalid" class="btn btn-primary w-50 text-center" (click)="registerUser($event)">Create account</button>
+      </div>
+  </form>
+
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5 fw-bold text-success" id="staticBackdropLabel">Account created succesfully!</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken')
 // Veryfing the token for auth
 const verifyToken = (req, res, next) => {
     
-    const header = req.headers['authorization']
+    const header = req.headers['Authorization']
     if (header != undefined) {
         const token = header
         req.auth = token

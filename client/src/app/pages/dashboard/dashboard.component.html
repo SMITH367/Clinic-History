@@ -1,0 +1,11 @@
+<app-header></app-header>
+<h1 class="text-center">HOLA, BIENVENIDO AUTENTICACIÓN Y AUTORIZACIÓN EXITOSOS USANDO JWT</h1>
+<div>
+  <h2>Información del usuario</h2>
+
+    <ul *ngIf="userData">
+    <li>Identificador: {{userData.id}}</li>
+    <li>Nombre: {{userData.name}}</li>
+    <li>Correo electrónico: {{userData.email}}</li>
+  </ul>
+</div>

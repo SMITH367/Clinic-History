@@ -1,0 +1,9 @@
+.link-header {
+  display: inline-block;
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Efecto de aumento de tamaño al hacer hover */
+.link-header:hover {
+  transform: scale(1.1);
+}
