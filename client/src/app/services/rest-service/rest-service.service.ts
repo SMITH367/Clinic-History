@@ -53,7 +53,7 @@ export class RestService {
   putData(data: any, endpoint:string='', auth:string=''){
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      "authorization":`Bearer ${auth}`,
+      "authorization":auth,
       "Accept": "aplication/json",
     });
 
@@ -64,10 +64,9 @@ export class RestService {
 
   deleteData(endpoint:string='', auth:string=''){
 
-
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      "authorization":`Bearer ${auth}`,
+      "authorization":auth,
       "Accept": "aplication/json",
     });
 
