@@ -46,7 +46,10 @@ export class AuthService {
       },
       (error: any) => {
         console.error('Response POST Error:', error);
-        alert(error.error.error);
+        if(error.status === 403)
+          alert("Usuario o contraseña invalidos")
+        else
+          alert("Ha ocurrido un error en el servidor")
       }
     );
   }

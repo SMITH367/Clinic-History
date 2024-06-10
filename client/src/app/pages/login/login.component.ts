@@ -19,8 +19,6 @@ export class LoginComponent {
 
   constructor(
     private fb: FormBuilder,
-    private restService: RestService,
-    private userManager: UserManagerService,
     private auth:AuthService
   ) {
     this.loginForm = this.fb.group({
