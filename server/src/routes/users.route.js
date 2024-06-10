@@ -26,7 +26,7 @@ router.post('/login', async (req, res) => {
                      user   
                     }, 'secretKey', (err, token) => {
 
-                        if (err) return err
+                        if (err) return res.status(500).json({error:err})
 
                         const dataUser = {
                             name: rows[0].name,
@@ -35,11 +35,12 @@ router.post('/login', async (req, res) => {
                         }
 
                         res.json(dataUser);
-
                     })
                 } else {
                     res.sendStatus(403)
                 }
+            } else {
+                res.status(403).json({error:"User not found"})
             }
 
         }

@@ -36,11 +36,7 @@ router.get('/patients/search/:id', verifyToken, (req, res)=>{
     conexionMysql.query(patientModel.searchPatient, paramsSearch, (err, rows, fields) => {
         if (err) res.status(500).json({error:err})
         else {
-            if(rows.length > 0){
-                res.status(200).send(rows);
-            }else {
-                res.status(404).json({error:'Patient not found'});
-            }
+            res.status(200).send(rows);
         }
     })    
 })
