@@ -17,8 +17,8 @@
   </article>
 
   <article class="mt-3 p-lg-4">
-    <h2>Clases</h2>
-    <table class="table table-borderless mx-auto table-responsive-sm table-responsive-md table-hover">
+    <h2 class="text-center">Clases</h2>
+    <table class="table table-borderless mx-auto w-75 table-responsive-md table-hover">
       <thead class="table-light">
         <tr>
           <th scope="col">ID Convenio</th>
@@ -29,11 +29,12 @@
         <tr>
           <td>{{class.class_id}}</td>
           <td>{{class.name}}</td>
-          <td><button class="btn btn-primary">Editar</button></td>
+          <td><button class="btn btn-primary" (click)="updateClass({id:class.class_id, name:class.name})">Editar</button></td>
         </tr>
       </tbody>
     </table>
   </article>
 
-  <app-create-class></app-create-class>
+  <app-create-class (reloadClasses)="getClasses()"></app-create-class>
+  <app-edit-class (reloadClasses)="getClasses()" [id_class]="id_class" ></app-edit-class>
 </section>

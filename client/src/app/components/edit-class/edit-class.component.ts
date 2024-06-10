@@ -9,18 +9,19 @@ import { ClassesManagerService } from '../../services/classes-manager/classes-ma
 declare var $:any
 
 @Component({
-  selector: 'app-create-class',
+  selector: 'app-edit-class',
   standalone: true,
-  imports: [ReactiveFormsModule, NgIf],
-  templateUrl: './create-class.component.html',
-  styleUrl: './create-class.component.css'
+  imports: [NgIf, ReactiveFormsModule],
+  templateUrl: './edit-class.component.html',
+  styleUrl: './edit-class.component.css'
 })
 
-export class CreateClassComponent {
-
+export class EditClassComponent {
   updateClassForm!:FormGroup
   classUpdated:boolean = false
   newClassName:string = ''
+
+  @Input() id_class!:string
 
   @Output() reloadClasses: EventEmitter<void> = new EventEmitter<void>();
 
@@ -35,23 +36,23 @@ export class CreateClassComponent {
   }
 
   closeModal(){
-    $('#createClassModal').modal('hide');
+    $('#editClassModal').modal('hide');
   }
 
-  createClass(){
+  updateClass(){
     this.newClassName = this.updateClassForm.get('classToUpdate')?.value
 
     let data = {
-      className:this.newClassName
+      className:this.newClassName,
+      class_id:this.id_class
     }
 
-    this.classManager.createClass(data).subscribe((response)=>{
-      if(response.class_added==true){
+    this.classManager.updateClass(data).subscribe((response)=>{
+      if(response.class_updated==true){
 
         this.classUpdated = true
         this.reloadClasses.emit()
 
-        this.updateClassForm.controls['classToUpdate'].setValue('')
         setTimeout(()=>{
           this.classUpdated = false
           this.closeModal()

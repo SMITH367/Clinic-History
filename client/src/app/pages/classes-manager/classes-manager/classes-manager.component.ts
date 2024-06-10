@@ -3,6 +3,7 @@ import { HeaderComponent } from '../../../components/header/header.component';
 import { ClassesManagerService } from '../../../services/classes-manager/classes-manager.service';
 import { UserManagerService } from '../../../services/user-manager/user-manager.service';
 import { CreateClassComponent } from '../../../components/create-class/create-class.component';
+import { EditClassComponent } from '../../../components/edit-class/edit-class.component';
 import { userModel } from '../../../models/user.model';
 import { NgFor } from '@angular/common';
 
@@ -11,7 +12,7 @@ declare var $: any;
 @Component({
   selector: 'app-classes-manager',
   standalone: true,
-  imports: [HeaderComponent, CreateClassComponent,NgFor],
+  imports: [HeaderComponent, CreateClassComponent,NgFor, EditClassComponent],
   templateUrl: './classes-manager.component.html',
   styleUrl: './classes-manager.component.css'
 })
@@ -21,9 +22,12 @@ export class ClassesManagerComponent {
 
   classesList:any = []
   userData!:userModel
-  classId:any = ''
+  id_class:any = ''
 
   ngOnInit(){
+    this.getClasses()
+  }
+  getClasses(){
     this.userData = this.userManager.getUserData();
     this.classesManager.getClasess().subscribe(
       (response: any) => {
@@ -37,10 +41,15 @@ export class ClassesManagerComponent {
   }
 
   createClass(element:any){
-    this.classId = element.url_key;
-    const modal = $('#editSlugModal');
-    modal.find('.input-edit-slug').val(`${element.destination_url}`)
+    const modal = $('#createClassModal');
     modal.modal('show');
+  }
+
+  updateClass(classToUpdate:any){
+    const modal = $('#editClassModal');
+    modal.modal('show');
+    modal.find('.input-edit-class').val(`${classToUpdate.name}`)
+    this.id_class = classToUpdate.id
   }
 
 }
