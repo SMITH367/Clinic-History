@@ -13,12 +13,26 @@ export class RestService {
   constructor(private http: HttpClient) {}
 
 
-  getData(id: any, endpoint:string='', auth:string=''){
+
+  getData(endpoint:string='', auth:string=''){
+
+    console.log(auth)
+    console.log(`${this.apiUrl}/${endpoint}`)
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      "Authorization": auth,
+      "Accept": "aplication/json",
+    });
+
+    return this.http.get<any>(`${this.apiUrl}/${endpoint}`, {headers, withCredentials:false} );
+
+  }
+
+  getDataById(id: any, endpoint:string='', auth:string=''){
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      "Authorization":`Bearer ${auth}`,
-      'Access-Control-Allow-Origin': '*',
+      "authorization":auth,
       "Accept": "aplication/json",
     });
 
@@ -27,25 +41,19 @@ export class RestService {
   }
 
   postData(data: any, endpoint:string='', auth:string=''){
-
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      "Authorization":`Bearer ${auth}`,
+      "authorization":auth,
       "Accept": "aplication/json",
     });
 
-
     return this.http.post<any>(`${this.apiUrl}/${endpoint}`, data, {headers, withCredentials:false} );
-
   }
 
   putData(data: any, endpoint:string='', auth:string=''){
-
-
-
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      "Authorization":`Bearer ${auth}`,
+      "authorization":`Bearer ${auth}`,
       "Accept": "aplication/json",
     });
 
@@ -59,7 +67,7 @@ export class RestService {
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      "Authorization":`Bearer ${auth}`,
+      "authorization":`Bearer ${auth}`,
       "Accept": "aplication/json",
     });
 
