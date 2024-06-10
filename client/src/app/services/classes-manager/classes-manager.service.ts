@@ -17,4 +17,8 @@ export class ClassesManagerService {
     return this.restService.postData(className,'classes/add', this.userManager.getUserLogged())
   }
 
+  updateClass(classData:any){
+    return this.restService.putData(classData,'classes/update', this.userManager.getUserLogged())
+  }
+
 }

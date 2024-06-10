@@ -1,9 +1,9 @@
 const saveClass = "INSERT INTO classes SET ?";
 const getClasses = "SELECT * FROM classes";
-const deleteClass = "DELETE FROM classes WHERE name = ?"
+const updateClass = "UPDATE classes SET ? WHERE class_id=?"
 
 module.exports = {
     saveClass,
-    deleteClass,
-    getClasses
+    getClasses,
+    updateClass
 }

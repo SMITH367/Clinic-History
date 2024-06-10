@@ -32,12 +32,17 @@ router.post('/classes/add', verifyToken, (req, res)=>{
     })    
 })
 
-router.delete('/classes/delete', verifyToken, (req, res)=>{
-    conexionMysql.query(classModel.deleteClass, req.body.className, (err, rows, fields) => {
+router.put('/classes/update', verifyToken, (req, res)=>{
+    let data = {
+        name:req.body.className,
+        class_id:req.body.class_id
+    }
+    conexionMysql.query(classModel.updateClass, [{name:data.name}, data.class_id], (err, rows, fields) => {
         if (err) res.status(500).send(err)
+        
         else {
             res.json({
-                "class_deleted": true
+                "class_updated": true
             });
         }
     })  
