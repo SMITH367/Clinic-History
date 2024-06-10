@@ -1,0 +1,27 @@
+<p>create-class works!</p>
+<div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" id="editSlugModal" tabindex="-1" role="dialog" aria-labelledby="editSlugModalLabel"
+  aria-hidden="true" >
+  <section class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Nuevo clase</h5>
+        <button type="button " class="btn-close" data-dismiss="modal" aria-label="Close" (click)="closeModal()">
+        </button>
+      </div>
+      <article class="modal-body">
+        <form [formGroup]="updateClassForm">
+          <label for="newUrl">Ingrese el nombre de la clase: </label>
+          <input formControlName="classToUpdate" class="border rounded-1 w-100 py-2 mt-3 mb-3" placeholder="EPS" type="text" name="">
+          <div *ngIf="classUpdated" class="mt-4 alert alert-success alert-dismissible fade show" role="alert">
+            <strong>¡Clase creada correctamente!</strong>
+          </div>
+
+          <footer class="modal-footer mt-1">
+            <button  (click)="createClass()" class="btn btn-primary" [disabled]="updateClassForm.invalid" >Crear convenio</button>
+          </footer>
+        </form>
+
+      </article>
+    </div>
+  </section>
+</div>
