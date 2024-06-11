@@ -68,7 +68,6 @@ router.put('/patients/:identification', verifyToken, (req, res)=>{
   
     let data = {
         name: req.body.name,
-        identification:req.body.identification,
         last_name:req.body.last_name,
         identificationType:req.body.identificationType,
         class_patient:req.body.class_patient,
@@ -84,7 +83,6 @@ router.put('/patients/:identification', verifyToken, (req, res)=>{
             else res.status(400).json({error:"patient is not exist"})
         }
     })
-
 })
 
 
