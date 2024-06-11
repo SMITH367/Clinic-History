@@ -1,0 +1,46 @@
+<app-header></app-header>
+<h1 class="text-center mt-sm-2">Historia clinica de {{patientData.name}} {{patientData.last_name}}</h1>
+<section class="mt-5">
+  <article class="d-flex justify-content-around align-items-center flex-wrap">
+    <h2 class="text-sm-center" >Paciente {{patientData.type}} {{patientData.identification}}</h2>
+    <a routerLink="/crear/paciente" class="btn btn-outline-success text-white btn-success">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="icon icon-tabler icons-tabler-outline icon-tabler-clipboard-heart">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" />
+        <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
+        <path
+          d="M11.993 16.75l2.747 -2.815a1.9 1.9 0 0 0 0 -2.632a1.775 1.775 0 0 0 -2.56 0l-.183 .188l-.183 -.189a1.775 1.775 0 0 0 -2.56 0a1.899 1.899 0 0 0 0 2.632l2.738 2.825z" />
+        </svg>
+      Nueva consulta
+    </a>
+  </article>
+  <article class="mt-3 w-auto mx-auto p-lg-4">
+    <h2>Consultas</h2>
+    <table class="table table-borderless table-hover">
+      <thead class="table-light">
+        <tr>
+          <th scope="col">ID consulta</th>
+          <th scope="col">Fecha de consulta</th>
+          <th scope="col">Detalle</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let consultation of clinicHistoryPatient">
+        <tr>
+          <th scope="row">{{consultation.id_consultation}}</th>
+          <th scope="row">{{formatDate(consultation.date_consultation)}}</th>
+          <th scope="row"> <a class="text-decoration-none" [routerLink]="['/editar/paciente/', 'ads']">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-edit">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" />
+                <path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" />
+                <path d="M16 5l3 3" /></svg>
+              Ver Detalle </a></th>
+          <tr>
+      </tbody>
+    </table>
+  </article>
+</section>

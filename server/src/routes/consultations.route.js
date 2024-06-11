@@ -5,9 +5,9 @@ const consultationModel = require('../models/consultation')
 const verifyToken = require('../Auth/verifyToken')
 
 
-router.get('/consultations', verifyToken, (req, res)=>{
+router.get('/consultations/:patient', verifyToken, (req, res)=>{
   
-    let patient = req.body.patient;
+    let patient = req.params.patient;
 
     conexionMysql.query(consultationModel.getConsultationsByPatient, patient, (err, rows, fields) => {
         if (err) res.status(500).json({error:err})
