@@ -17,7 +17,9 @@ export class PatientsManagerService {
   getPatients() {
     return this.restService.getData('patients', this.userManager.getUserLogged())
   }
-
+  getPatient(identification:string) {
+    return this.restService.getData(`patients/${identification}`, this.userManager.getUserLogged())
+  }
   searchPatients(patient:string) {
     return this.restService.getData(`patients/search/${patient}`, this.userManager.getUserLogged())
   }
