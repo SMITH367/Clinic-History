@@ -1,2 +1,66 @@
 <app-header></app-header>
-<p>create-patient works!</p>
+<section>
+  <h1 class="text-center">Informacion del nuevo paciente</h1>
+  <div class="container mb-2 mx-auto mt-5">
+    <div class="card">
+      <div class="card-body">
+        <form [formGroup]="createPatientForm">
+          <div class="row mb-3">
+            <div class="col-12 col-sm-4">
+              <label for="documento" class="form-label">Nombre</label>
+              <input formControlName="name" required type="text" class="form-control" id="documento" placeholder="Nombre">
+            </div>
+            <div class="col-12 col-sm-4">
+              <label for="documento" class="form-label">Apellido</label>
+              <input formControlName="last_name" type="text" class="form-control" id="documento" placeholder="Apellido">
+            </div>
+            <div class="col-12 col-sm-4">
+              <label for="tipo-documento" class="form-label m-1">Tipo de documento</label>
+              <select formControlName="typeDocument" id="tipo-documento" class="form-select">
+                <option value="CC">CC</option>
+                <option value="TI">TI</option>
+                <option value="PEP">PEP</option>
+                <option value="Registro Civil">Registro Civil</option>
+                <option value="Pasaporte">Pasaporte</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-12 col-sm-4">
+              <label for="documento" class="form-label">Documento</label>
+              <input formControlName="identification" type="text" class="form-control" id="documento"
+                placeholder="Numero de identificacion">
+            </div>
+            <div class="col-12 col-sm-4">
+              <label for="tipo-documento" class="form-label m-1">Clase del paciente</label>
+              <select formControlName="class" id="tipo-documento" class="form-select">
+                <option *ngFor="let item of classesList" value={{item.class_id}}>{{item.name}}</option>
+              </select>
+            </div>
+            <div class="col-12 col-sm-4">
+              <label for="fecha-nacimiento" class="form-label">Fecha de nacimiento</label>
+              <input formControlName="born_date" type="date" class="form-control" id="fecha-nacimiento">
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-12 col-sm-4">
+              <label for="phone" class="form-label">Telefono</label>
+              <input formControlName="phone" type="text" class="form-control" id="phone" placeholder="Telefono">
+            </div>
+          </div>
+
+          <div class="w-50 w-75 mx-auto d-flex justify-content-around text-center">
+
+            <a routerLink="/dashboard" class="btn btn-success">Volver</a>
+            <button class="btn btn-primary" [disabled]="createPatientForm.invalid" (click)="som($event)">Registrar
+              paciente</button>
+
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

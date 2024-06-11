@@ -22,4 +22,9 @@ export class PatientsManagerService {
     return this.restService.getData(`patients/search/${patient}`, this.userManager.getUserLogged())
   }
 
+  savePatients(patient:any){
+    return this.restService.postData(patient, 'patients', this.userManager.getUserLogged())
+  }
+
+
 }
