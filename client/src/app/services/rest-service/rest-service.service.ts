@@ -56,10 +56,7 @@ export class RestService {
       "authorization":auth,
       "Accept": "aplication/json",
     });
-
-
     return this.http.put<any>(`${this.apiUrl}/${endpoint}`, data, {headers, withCredentials:false} );
-
   }
 
   deleteData(endpoint:string='', auth:string=''){
