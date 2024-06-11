@@ -54,7 +54,7 @@ export class CreatePatientComponent {
     );
   }
 
-  som($event: any) {
+  createPatient($event: any) {
     let newPatient = {
       name: this.createPatientForm.get('name')?.value,
       last_name: this.createPatientForm.get('last_name')?.value,

@@ -23,10 +23,11 @@ export class PatientsManagerService {
   searchPatients(patient:string) {
     return this.restService.getData(`patients/search/${patient}`, this.userManager.getUserLogged())
   }
-
   savePatients(patient:any){
     return this.restService.postData(patient, 'patients', this.userManager.getUserLogged())
   }
-
+  updatePatient(patient:any, patient_id:string){
+    return this.restService.putData(patient, `patients/${patient_id}`, this.userManager.getUserLogged())
+  }
 
 }
