@@ -9,13 +9,13 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-create-consultation',
+  selector: 'app-update-consultation',
   standalone: true,
   imports: [HeaderComponent, RouterLink, ReactiveFormsModule],
-  templateUrl: './create-consultation.component.html',
-  styleUrl: './create-consultation.component.css',
+  templateUrl: './update-consultation.component.html',
+  styleUrl: './update-consultation.component.css',
 })
-export class CreateConsultationComponent {
+export class UpdateConsultationComponent {
   patientData: any = {
     birthday: '',
     identification: '',
@@ -26,8 +26,12 @@ export class CreateConsultationComponent {
     type: '',
   };
   patient_id: string = '';
-  createConsultationForm!: FormGroup;
-  currentDate:string = new Date().toString()
+  consultation_id: string = '';
+  consultationData: any = {
+    description: '',
+    id_consultation: '',
+  };
+  updateConsultationForm!: FormGroup;
   formatDate = formatDate;
   calculateAge = calculateAge;
 
@@ -37,7 +41,7 @@ export class CreateConsultationComponent {
     private router: Router,
     private fb: FormBuilder
   ) {
-    this.createConsultationForm = this.fb.group({
+    this.updateConsultationForm = this.fb.group({
       consultation_description: [
         '',
         [Validators.required, Validators.minLength(4)],
@@ -48,14 +52,15 @@ export class CreateConsultationComponent {
   ngOnInit() {
     const segments = window.location.href.split('/');
     this.patient_id = segments[segments.length - 1];
+    this.consultation_id = segments[segments.length - 2];
     this.getPatient(this.patient_id);
+    this.getConsultation(this.consultation_id);
   }
 
   private getPatient(identification: string) {
     this.patientManager.getPatient(identification).subscribe(
       (response) => {
         this.patientData = response;
-        console.log(this.patientData);
       },
       (error) => {
         if (error.status === 404) {
@@ -65,23 +70,40 @@ export class CreateConsultationComponent {
     );
   }
 
-  createConsultation() {
-    const consultationData = {
-      patient: this.patient_id,
-      description: this.createConsultationForm.get('consultation_description')
-        ?.value,
-    };
-
-    this.consultationManager.createConsultation(consultationData).subscribe(
+  private getConsultation(consultation_id: string) {
+    this.consultationManager.getConsultationById(consultation_id).subscribe(
       (response) => {
-        console.log(response);
-        if (response.consultation_added === true) {
-          alert('Consulta creada correctamente');
-          this.router.navigate(['/historia/paciente/',this.patient_id]);
+        this.consultationData = response;
+        if (this.patient_id != this.consultationData.patient) {
+          this.router.navigate(['/*']);
+        } else {
+          this.updateConsultationForm
+            .get('consultation_description')
+            ?.setValue(this.consultationData.description);
         }
       },
       (error) => {
-        console.log(error);
+        if (error.status === 404) {
+          this.router.navigate(['/*']);
+        }
+      }
+    );
+  }
+
+  updateConsultation() {
+    const updateData = {
+      newDescription:this.updateConsultationForm.get('consultation_description')?.value,
+      id_consultation:this.consultation_id
+    }
+    this.consultationManager.updateConsultation(updateData).subscribe(
+      (response) => {
+        if(response.consultation_modified == true){
+          alert("Actualización de consulta realizada correctamente")
+        }
+      },
+      (error) => {
+        alert("Ha ocurrido un error en el servidor")
+        console.error(error)
       }
     );
   }

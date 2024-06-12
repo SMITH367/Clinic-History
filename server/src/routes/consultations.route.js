@@ -26,7 +26,7 @@ router.get('/consultation/:id', verifyToken, (req, res)=>{
         if (err) res.status(500).json({error:err})
         else {
         if(rows.length >0)
-            res.status(200).send(rows);
+            res.status(200).send(rows[0]);
         else res.status(404).json({error:"Consultation not found"})
         }
     })
