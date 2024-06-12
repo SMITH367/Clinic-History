@@ -2,8 +2,8 @@
 <h1 class="text-center mt-sm-2">Historia clinica de {{patientData.name}} {{patientData.last_name}}</h1>
 <section class="mt-5">
   <article class="d-flex justify-content-around align-items-center flex-wrap">
-    <h2 class="text-sm-center" >Paciente {{patientData.type}} {{patientData.identification}}</h2>
-    <a routerLink="/crear/paciente" class="btn btn-outline-success text-white btn-success">
+    <h2 class="text-sm-center" >Paciente {{patientData.identificationType}} {{patientData.identification}}</h2>
+    <a [routerLink]="['/crear/consulta/',patient_id]" class="btn btn-outline-success text-white btn-success">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
         class="icon icon-tabler icons-tabler-outline icon-tabler-clipboard-heart">
@@ -30,7 +30,7 @@
         <tr>
           <th scope="row">{{consultation.id_consultation}}</th>
           <th scope="row">{{formatDate(consultation.date_consultation)}}</th>
-          <th scope="row"> <a class="text-decoration-none" [routerLink]="['/editar/paciente/', 'ads']">
+          <th scope="row"> <a class="text-decoration-none" [routerLink]="['/editar/paciente/', patient_id]">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                 class="icon icon-tabler icons-tabler-outline icon-tabler-edit">

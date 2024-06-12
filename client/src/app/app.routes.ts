@@ -5,6 +5,7 @@ import { CreatePatientComponent } from './pages/create-patient/create-patient.co
 import { ClassesManagerComponent } from './pages/classes-manager/classes-manager/classes-manager.component';
 import { PatientEditorComponent } from './pages/patient-editor/patient-editor/patient-editor.component';
 import { ClinicHistoryComponent } from './pages/clinic-history/clinic-history/clinic-history.component';
+import { CreateConsultationComponent } from './pages/create-consultation/create-consultation/create-consultation.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { authGuard } from './guards/auth/auth.guard';
 import { unauthGuard } from './guards/unauth/unauth.guard';
@@ -25,6 +26,9 @@ export const routes: Routes = [
   },
   {
     path:'historia/paciente/:id', component:ClinicHistoryComponent, title:'Historia clinica', canMatch:[authGuard]
+  },
+  {
+    path:'crear/consulta/:id', component:CreateConsultationComponent, title:'Historia clinica', canMatch:[authGuard]
   },
   {
     path:'convenios', component:ClassesManagerComponent, title:'Gestionar convenios', canMatch:[authGuard]

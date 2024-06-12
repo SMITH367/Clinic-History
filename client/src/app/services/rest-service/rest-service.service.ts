@@ -8,9 +8,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class RestService {
 
-  // private apiUrl = 'http://localhost:3000';
+  private apiUrl = 'http://localhost:3000';
 
-  private apiUrl = 'https://fnch2t9f-3000.use2.devtunnels.ms'
   constructor(private http: HttpClient) {}
 
 

@@ -1,0 +1,27 @@
+<app-header></app-header>
+
+<section>
+  <h1 class="text-center">Nueva consulta del paciente {{patient_id}}</h1>
+
+  <article class="w-75 mx-auto mt-4">
+    <div class="row mb-2">
+      <div class="col-sm-3"><strong>Nombre:</strong> {{patientData.name}}</div>
+      <div class="col-sm-3"><strong>Apellido:</strong> {{patientData.last_name}}</div>
+      <div class="col-sm-3"><strong>Fecha de nacimiento:</strong> {{formatDate(this.patientData.birthday)}}</div>
+      <div class="col-sm-3"><strong>Edad:</strong> {{calculateAge(patientData.birthday)}} Años</div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-sm-3"><strong>Documento:</strong> {{patientData.identificationType}} {{patientData.identification}}</div>
+      <div class="col-sm-3"><strong>Clase:</strong> {{patientData.type}}</div>
+      <div class="col-sm-3"><strong>Teléfono:</strong> {{patientData.phone_number}}</div>
+    </div>
+  </article>
+  <form class="w-75 mb-4 mx-auto d-flex flex-wrap form-control mt-3" [formGroup]="createConsultationForm">
+      <label class="mb-2">Fecha de la hoja clinica: <strong>{{formatDate(currentDate)}}</strong></label>
+      <textarea formControlName="consultation_description" class="mx-auto w-100 form-control custom-textarea" style="resize: none;" name="" rows="10" id="" placeholder="Ingrese la informacion de la consulta"></textarea>
+      <div class="d-flex w-100 mt-2 justify-content-around">
+        <a class="btn btn-success" [routerLink]="['/historia/paciente/', patient_id]" >Volver</a>
+        <input class="btn btn-primary" type="submit" value="Guardar" (click)="createConsultation()" [disabled]="createConsultationForm.get('consultation_description')?.invalid">
+      </div>
+  </form>
+</section>
