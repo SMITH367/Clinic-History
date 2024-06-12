@@ -17,7 +17,8 @@ export class HeaderComponent {
 
 
   closeSesion(){
-    this.auth.logOut()
-    this.router.navigate(['/'])
+    const responseLogOut = this.auth.logOut()
+    if(responseLogOut)
+      this.router.navigate(['/'])
   }
 }
