@@ -6,10 +6,7 @@ const verifyToken = require('../Auth/verifyToken')
 
 
 router.get('/prescriptions', verifyToken, (req, res) => {
-
-    let patient = req.body.patient;
-
-    conexionMysql.query(prescriptionsModel.getPrescriptions, patient, (err, rows, fields) => {
+    conexionMysql.query(prescriptionsModel.getPrescriptions, (err, rows, fields) => {
         if (err) res.status(500).json({
             error: err
         })
