@@ -1,7 +1,18 @@
 <app-header></app-header>
 <section class="border">
   <article class="mt-3 p-lg-4 table-responsive">
-    <h2>Recetas</h2>
+    <div class="d-flex w-100 justify-content-around mb-2">
+      <h2>Recetas</h2>
+      <a routerLink="/crear/receta" class="btn btn-outline-success text-white btn-success">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+          class="icon icon-tabler icons-tabler-filled icon-tabler-pill">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path
+            d="M20.207 3.793a5.95 5.95 0 0 1 0 8.414l-8 8a5.95 5.95 0 0 1 -8.414 -8.414l8 -8a5.95 5.95 0 0 1 8.414 0m-7 1.414l-4.294 4.293l5.586 5.586l4.294 -4.292a3.95 3.95 0 1 0 -5.586 -5.586" />
+          </svg>
+        Agregar receta
+      </a>
+    </div>
     <table class="table table-borderless table-hover">
       <thead class="table-light">
         <tr>
@@ -19,9 +30,18 @@
           <td>
             <app-prescription-print [prescriptionData]="prescription"></app-prescription-print>
           </td>
-          <td><button class="btn btn-primary text-decoration-none" (click)="deletePrescription(prescription.id_prescription)">
-            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-trash"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 7l16 0" /><path d="M10 11l0 6" /><path d="M14 11l0 6" /><path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" /><path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" /></svg>
-          </button></td>
+          <td><button class="btn btn-primary text-decoration-none"
+              (click)="deletePrescription(prescription.id_prescription)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-trash">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M4 7l16 0" />
+                <path d="M10 11l0 6" />
+                <path d="M14 11l0 6" />
+                <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" /></svg>
+            </button></td>
         </tr>
       </tbody>
     </table>

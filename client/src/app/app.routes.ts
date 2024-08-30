@@ -8,6 +8,7 @@ import { ClinicHistoryComponent } from './pages/clinic-history/clinic-history/cl
 import { CreateConsultationComponent } from './pages/create-consultation/create-consultation/create-consultation.component';
 import { UpdateConsultationComponent } from './pages/update-consultation/update-consultation/update-consultation.component';
 import { PrescriptionComponent } from './pages/prescription/prescription.component';
+import { CreatePrescriptionComponent } from './pages/create-prescription/create-prescription/create-prescription.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { authGuard } from './guards/auth/auth.guard';
 import { unauthGuard } from './guards/unauth/unauth.guard';
@@ -40,6 +41,9 @@ export const routes: Routes = [
   },
   {
     path:'recetas', component:PrescriptionComponent, title:'Gestionar Recetas', canMatch:[authGuard]
+  },
+  {
+    path:'crear/receta', component:CreatePrescriptionComponent, title:'Crear Receta', canMatch:[authGuard]
   },
   {
     path:'**', component:NotFoundComponent, title:"404"

@@ -7,7 +7,6 @@ import { PatientsManagerService } from '../../services/patients-manager/patients
 import { userModel } from '../../models/user.model';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Validators } from '@angular/forms';
-import { error } from 'jquery';
 declare var $: any;
 @Component({
   selector: 'app-dashboard',
