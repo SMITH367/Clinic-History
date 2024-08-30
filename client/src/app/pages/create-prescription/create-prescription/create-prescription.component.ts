@@ -11,13 +11,14 @@ import {
   FormGroup,
   FormControl,
 } from '@angular/forms';
+import { PrescriptionPrintComponent } from '../../prescription-print/prescription-print.component';
 import { Validators } from '@angular/forms';
 import { NgFor, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-create-prescription',
   standalone: true,
-  imports: [ReactiveFormsModule, RouterLink, HeaderComponent, NgIf, NgFor],
+  imports: [PrescriptionPrintComponent,ReactiveFormsModule, RouterLink, HeaderComponent, NgIf, NgFor],
   templateUrl: './create-prescription.component.html',
   styleUrl: './create-prescription.component.css',
 })
@@ -31,6 +32,8 @@ export class CreatePrescriptionComponent {
   searchControl = new FormControl('');
   selectedOption: string = '';
   dropdownOpen = false;
+  prescriptionData!:any;
+
 
   constructor(
     private prescriptionManager: PrescriptionManagerService,
@@ -59,15 +62,31 @@ export class CreatePrescriptionComponent {
     setTimeout(() => (this.dropdownOpen = false), 200); // Cierra el dropdown después de un breve retraso
   }
 
-  selectOption(name: string, identification:string) {
-    this.selectedOption = `${name} ${identification}`;
+  selectOption(patient: any,) {
+    this.selectedOption = `${patient.name} ${patient.identification}`;
     this.searchControl.setValue('');
     this.dropdownOpen = false;
-    this.prescriptionDataForm.get('patient')?.setValue(identification)
+    this.prescriptionDataForm.get('patient')?.setValue(patient.identification)
+
+    this.prescriptionData = {
+      name:patient.name,
+      last_name:patient.last_name,
+      identification:patient.identification,
+      birthday:patient.birthday,
+      date_prescription:this.currentDate,
+    }
   }
 
   ngOnInit() {
     this.getAllPatients();
+  }
+
+  getPrescriptionDataInfo(){
+      return {
+        ...this.prescriptionData,
+        prescription: this.prescriptionDataForm.get('prescriptionData')?.value
+      };
+
   }
 
   getAllPatients() {

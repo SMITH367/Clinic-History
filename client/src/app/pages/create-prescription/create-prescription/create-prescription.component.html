@@ -27,9 +27,9 @@
       <!-- Menú desplegable con opciones filtradas -->
       <div *ngIf="dropdownOpen" class="dropdown-menu show position-absolute w-50  mt-2 border rounded">
         <input type="text" [formControl]="searchControl" placeholder="Buscar por nombre o identificacion" class="form-control mb-2">
-        <div *ngFor="let option of filteredOptions()" class="dropdown-item cursor-pointer" (click)="selectOption(option.name, option.identification)">
-          {{ option.name }}
-          {{option.identification}}
+        <div *ngFor="let patient of filteredOptions()" class="dropdown-item cursor-pointer" (click)="selectOption(patient)">
+          {{ patient.name }}
+          {{patient.identification}}
         </div>
       </div>
     </div>
@@ -37,8 +37,11 @@
       <label class="mb-2">Fecha de la receta: <strong>{{formatDate(currentDate)}}</strong></label>
       <textarea formControlName="prescriptionData" class="mx-auto w-100 form-control custom-textarea" style="resize: none;" name="" rows="10" id="" placeholder="Ingrese la informacion de la consulta"></textarea>
       <div class="d-flex w-100 mt-2 justify-content-around">
-        <!-- <a class="btn btn-success" [routerLink]="['/historia/paciente/', patient_id]" >Volver</a> -->
         <input class="btn btn-primary" type="submit" value="Guardar" (click)="createPrescription()" [disabled]="prescriptionDataForm.get('prescriptionData')?.invalid || prescriptionDataForm.get('patient')?.invalid">
+        <div>.</div>
+        <div *ngIf="prescriptionDataForm.get('prescriptionData')?.valid && prescriptionDataForm.get('patient')?.valid">
+          <app-prescription-print [prescriptionData]="getPrescriptionDataInfo()"></app-prescription-print>
+        </div>
       </div>
     </div>
   </form>

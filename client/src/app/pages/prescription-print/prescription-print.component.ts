@@ -14,8 +14,6 @@ export class PrescriptionPrintComponent {
 
   @Input() prescriptionData!:any
 
-  paciente = { nombre: 'Juan Pérez', edad: 45 };
-
   downloadPDF() {
 
   console.log(this.prescriptionData)
