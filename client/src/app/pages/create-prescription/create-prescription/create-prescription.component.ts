@@ -102,7 +102,24 @@ export class CreatePrescriptionComponent {
   }
 
   createPrescription() {
-    console.log(this.prescriptionDataForm.get('patient')?.value)
-    console.log(this.prescriptionDataForm.get('prescriptionData')?.value)
+
+    let prescription = {
+      patient:this.prescriptionDataForm.get('patient')?.value,
+      prescription:this.prescriptionDataForm.get('prescriptionData')?.value
+    }
+    this.prescriptionManager.createPrescription(prescription).subscribe(
+      (response)=>{
+        if(response.prescription_added == true){
+          alert('Receta agregada correctamente')
+          this.prescriptionDataForm.controls['patient'].setValue('')
+          this.prescriptionDataForm.controls['prescriptionData'].setValue('')
+        }
+
+      },
+      (error)=>{
+        console.log(error)
+      }
+    )
+
   }
 }

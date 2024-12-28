@@ -38,28 +38,6 @@ router.post('/prescription', verifyToken, (req, res) => {
 
 })
 
-
-router.post('/prescription', verifyToken, (req, res) => {
-
-    let data = {
-        patient: req.body.patient,
-        prescription: req.body.prescription,
-        date_prescription: new Date()
-    }
-
-    conexionMysql.query(prescriptionsModel.savePrescription, [data], (err, rows, fields) => {
-        if (err) res.status(500).json({
-            error: err
-        })
-        else {
-            res.json({
-                "prescription_added": true
-            });
-        }
-    })
-
-})
-
 router.delete('/prescription/:id', verifyToken, (req, res) => {
 
     const deletePrescription = () => {

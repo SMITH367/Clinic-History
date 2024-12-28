@@ -13,6 +13,10 @@ export class PrescriptionManagerService {
     return this.restService.getData('prescriptions', this.userManager.getUserLogged())
   }
 
+  createPrescription(prescription:any){
+    return this.restService.postData(prescription,'prescription', this.userManager.getUserLogged())
+  }
+
   deletePrescription(idPrescription:string){
     return this.restService.deleteData(`prescription/${idPrescription}`, this.userManager.getUserLogged())
   }
