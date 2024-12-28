@@ -55,8 +55,8 @@ export class AuthService {
   }
 
   logOut() {
-    localStorage.removeItem('login');
     this.cookies.deleteAll();
+    localStorage.removeItem('login');
     return true
   }
 }

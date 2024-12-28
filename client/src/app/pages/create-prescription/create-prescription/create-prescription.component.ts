@@ -71,7 +71,7 @@ export class CreatePrescriptionComponent {
     this.prescriptionData = {
       name:patient.name,
       last_name:patient.last_name,
-      identification:patient.identification,
+      identification:`${patient.identificationType} ${patient.identification}`,
       birthday:patient.birthday,
       date_prescription:this.currentDate,
     }
