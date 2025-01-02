@@ -3,13 +3,13 @@
   <form [formGroup]="loginForm">
      <h2 class="text-center fw-bold"> Iniciar sesion </h2>
      <div class="email-login d-flex flex-column">
-        <label for="email"> <b>Correo</b></label>
-        <input class="py-2 mt-3 mb-3 border rounded" formControlName="email" type="email" placeholder="correo@gmail.com" name="uname" required>
+        <label for="email"> <b>Correo: </b></label>
+        <input class="py-2 mt-3 mb-3 border rounded" formControlName="email" type="email" placeholder="test@te.co" name="uname" required>
         <div class="text-danger" *ngIf="loginForm.get('email')?.hasError('email') && loginForm.get('email')?.touched">
           Correo invalido
         </div>
         <label for="psw"><b>Contraseña</b></label>
-        <input class="py-2 mt-3 mb-2 border rounded" formControlName="password" type="password" placeholder="Contraseña" name="psw" required>
+        <input class="py-2 mt-3 mb-2 border rounded" formControlName="password" type="password" placeholder="1234" name="psw" required>
         <div class="text-danger" *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched">
           *Required
         </div>
