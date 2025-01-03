@@ -67,8 +67,8 @@ router.post('/register', async (req, res) => {
     })
 })
 
-router.get('/user',verifyToken, async (req, res) => {
-   res.send("AUTHORIZATED")
+router.get('/healt', async (req, res) => {
+   res.send(true)
 })
 
 
