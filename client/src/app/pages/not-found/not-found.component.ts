@@ -3,6 +3,7 @@ import { NgIf } from '@angular/common';
 import { HeaderComponent } from '../../components/header/header.component';
 import { RouterLink } from '@angular/router';
 import { UserManagerService } from '../../services/user-manager/user-manager.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-not-found',
   standalone: true,
@@ -12,6 +13,12 @@ import { UserManagerService } from '../../services/user-manager/user-manager.ser
 })
 export class NotFoundComponent {
 
-  constructor (public userManager:UserManagerService){}
 
+  constructor (public userManager:UserManagerService, private router:Router){}
+
+  ngOnInit(){
+    //Validating when the user is logged in
+    if(this.userManager.getLoginState() && window.location.pathname === "/" )
+      this.router.navigate(['/dashboard'])
+  }
 }
