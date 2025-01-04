@@ -67,9 +67,7 @@ router.post('/register', async (req, res) => {
     })
 })
 
-router.get('/user',verifyToken, async (req, res) => {
-   res.send("AUTHORIZATED")
-})
+
 
 
 module.exports = router;
